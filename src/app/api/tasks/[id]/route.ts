@@ -4,19 +4,43 @@ import { prisma } from "@/libs/prisma";
 interface Params {
   params: { id: string };
 }
-
-export function GET(request: Request, { params }: Params) {
+//Busqueda por id
+export async function GET(request: Request, { params }: Params) {
   const { id } = params;
-  return NextResponse.json(`Esta es la tarea con id: ${id}`);
+  const idN = Number(id);
+  const taskById = await prisma.task.findFirst({
+    where: {
+      id: idN,
+    },
+  });
+  return !taskById
+    ? NextResponse.json("No se encuentra")
+    : NextResponse.json(taskById);
 }
 
-export function PATCH(request: Request, { params }: Params) {
+//Editar por id
+export async function PUT(request: Request, { params }: Params) {
   const { id } = params;
+  const idN = Number(id);
+  const data = await request.json();
+  const taskUpdated = await prisma.task.update({
+    where: {
+      id: idN,
+    },
+    data,
+  });
 
-  return NextResponse.json(`Editando la tarea con id: ${id}`);
+  return NextResponse.json(taskUpdated);
 }
-export function DELETE(request: Request, { params }: Params) {
-  const { id } = params;
 
-  return NextResponse.json(`Borrando la tarea con id: ${id}`);
+//Borrar por id
+export async function DELETE(request: Request, { params }: Params) {
+  const { id } = params;
+  const idN = Number(id);
+  const taskDeleted = await prisma.task.delete({
+    where: {
+      id: idN,
+    },
+  });
+  return NextResponse.json("Tarea eliminada");
 }
