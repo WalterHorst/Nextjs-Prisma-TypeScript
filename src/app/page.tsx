@@ -1,10 +1,12 @@
 import "./page.css";
-import axios from "axios";
+import { prisma } from "@/libs/prisma";
 import Card from "@/components/Card/Card";
 const getTasks = async () => {
-  const { data } = await axios("/api/tasks");
-  return data;
+  const tasks = await prisma.task.findMany();
+  return tasks;
 };
+
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const tasks = await getTasks();
