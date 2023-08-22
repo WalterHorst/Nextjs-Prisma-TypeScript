@@ -10,7 +10,7 @@ export default async function Home() {
   const tasks = await getTasks();
   return (
     <div className="task-container">
-      {tasks.map((task) => (
+      {tasks.map((task: any) => (
         <Card tasks={task} key={task.id}></Card>
       ))}
     </div>
