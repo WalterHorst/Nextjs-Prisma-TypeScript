@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "./layout.css";
 
 import NavBar from "@/components/NavBar/NavBar";
 
@@ -13,8 +14,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className="layout">
+      <body>
+        <NavBar></NavBar>
+        {children}
+      </body>
     </html>
   );
 }

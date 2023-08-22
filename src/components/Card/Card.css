@@ -1,0 +1,17 @@
+/* Estilos para la tarjeta (Card) */
+.card {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: white;
+  }
+  
+  /* Efecto hover para la tarjeta */
+  .card:hover {
+    transform: translateY(-5px);
+    background-color: #202020;
+  }
+  

@@ -1,0 +1,81 @@
+
+
+/* Estilos para el contenedor principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f400;
+    
+  }
+  
+  /* Estilos para el formulario */
+  .form-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+   padding: 20px;
+   background-color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  /* Estilos para las etiquetas */
+  label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: white;
+  }
+  
+  /* Estilos para los campos de entrada */
+  input {
+    width: 90%;
+    padding: 10px;
+   margin-bottom: 15px;
+    background-color: #ffffff7d;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  textarea{ background-color: #ffffff7d;
+width: 94%;
+height: 200px;}
+  
+  /* Estilos para el botón */
+  button {
+    display: block;
+    width: 80px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+  }
+  
+  button:hover{
+    background-color: #0056b3;
+  }
+
+  /* Estilos para el botón de eliminación */
+  .delete-button {
+    display: block;
+    width: 80px;
+    padding: 10px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .delete-button:hover{
+    background-color: #e61429
+  }
+  
+  .buton-container{
+    display: flex;
+    justify-content: space-around;
+    
+  }

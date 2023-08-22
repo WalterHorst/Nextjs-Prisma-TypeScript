@@ -1,6 +1,6 @@
 "use client";
 import { ChangeEvent, FormEvent, useEffect } from "react";
-
+import "./page.css";
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -56,8 +56,8 @@ const NewTask = ({ params }: { params: { id: string } }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={sumitHandler}>
+    <div className="container">
+      <form onSubmit={sumitHandler} className="form-container">
         <div>
           <label>Titulo de la tarea</label>
           <input
@@ -70,6 +70,7 @@ const NewTask = ({ params }: { params: { id: string } }) => {
         </div>
         <div>
           <label>Describe la tarea</label>
+          <br></br>
           <textarea
             onChange={changeHandler}
             placeholder="Describe la tarea"
@@ -77,12 +78,18 @@ const NewTask = ({ params }: { params: { id: string } }) => {
             value={form.descripcion}
           />
         </div>
-        <button type="submit">{params.id ? "Editar" : "Crear"}</button>
-        {params.id && (
-          <button type="button" onClick={deleteHandler}>
-            Delete
-          </button>
-        )}
+        <div className="buton-container">
+          <button type="submit">{params.id ? "Editar" : "Crear"}</button>
+          {params.id && (
+            <button
+              type="button"
+              onClick={deleteHandler}
+              className="delete-button "
+            >
+              Borrar
+            </button>
+          )}
+        </div>
       </form>
     </div>
   );

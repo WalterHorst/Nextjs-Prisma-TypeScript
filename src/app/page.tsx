@@ -1,3 +1,4 @@
+import "./page.css";
 import axios from "axios";
 import Card from "@/components/Card/Card";
 const getTasks = async () => {
@@ -8,7 +9,7 @@ const getTasks = async () => {
 export default async function Home() {
   const tasks = await getTasks();
   return (
-    <div>
+    <div className="task-container">
       {tasks.map((task) => (
         <Card tasks={task} key={task.id}></Card>
       ))}

@@ -1,0 +1,6 @@
+.task-container{
+
+    margin-top: 50px;
+    display: flex;
+    gap:4px;
+}

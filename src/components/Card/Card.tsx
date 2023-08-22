@@ -1,4 +1,5 @@
 "use client";
+import "./Card.css";
 import { Task } from "@prisma/client";
 import { useRouter } from "next/navigation";
 interface Prop {
@@ -9,6 +10,7 @@ const Card = ({ tasks }: Prop) => {
 
   return (
     <div
+      className="card"
       onClick={() => {
         router.push(`/tasks/edit/${tasks.id}`);
       }}
