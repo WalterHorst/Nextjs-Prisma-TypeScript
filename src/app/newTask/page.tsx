@@ -10,7 +10,7 @@ const NewTask = ({ params }: { params: { id: string } }) => {
 
   useEffect(() => {
     if (params.id) {
-      axios.get(`http://localhost:3000/api/tasks/${params.id}`).then((res) => {
+      axios.get(`/api/tasks/${params.id}`).then((res) => {
         setForm({
           ...form,
           titulo: res.data.titulo,
@@ -37,10 +37,10 @@ const NewTask = ({ params }: { params: { id: string } }) => {
   const sumitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (params.id) {
-      axios.put(`http://localhost:3000/api/tasks/${params.id}`, form);
+      axios.put(`/api/tasks/${params.id}`, form);
     } else {
       axios
-        .post("http://localhost:3000/api/tasks", form)
+        .post("/api/tasks", form)
         .then((res) => alert(res.data))
         .catch((error) => alert(error));
     }
@@ -50,7 +50,7 @@ const NewTask = ({ params }: { params: { id: string } }) => {
   };
 
   const deleteHandler = () => {
-    axios.delete(`http://localhost:3000/api/tasks/${params.id}`);
+    axios.delete(`/api/tasks/${params.id}`);
     router.refresh();
     router.push("/");
   };
