@@ -9,5 +9,5 @@ export async function POST(request: Request) {
   const data = await request.json();
   const newTask = await prisma.task.create({ data });
 
-  return NextResponse.json(newTask);
+  return NextResponse.json("Tarea creada");
 }

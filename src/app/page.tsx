@@ -1,11 +1,17 @@
-import Link from "next/link";
-export default function Home() {
+import axios from "axios";
+import Card from "@/components/Card/Card";
+const getTasks = async () => {
+  const { data } = await axios("http://localhost:3000/api/tasks");
+  return data;
+};
+
+export default async function Home() {
+  const tasks = await getTasks();
   return (
-    <main>
-      <h1>Aca van a ir las tareas capo</h1>
-      <Link href={"/"}>Home</Link>
-      <br></br>
-      <Link href={"/newTask"}>NewTask</Link>
-    </main>
+    <div>
+      {tasks.map((task) => (
+        <Card tasks={task} key={task.id}></Card>
+      ))}
+    </div>
   );
 }
